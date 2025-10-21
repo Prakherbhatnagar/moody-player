@@ -51,6 +51,49 @@ app.get('/api/test', (req, res) => {
   });
 });
 
+// Load route modules
+try {
+  app.use('/api/auth', require('../routes/auth'));
+  console.log('✅ Auth routes loaded');
+} catch (err) {
+  console.log('⚠️  Auth routes not available:', err.message);
+}
+
+try {
+  app.use('/api/songs', require('../routes/songs'));
+  console.log('✅ Songs routes loaded');
+} catch (err) {
+  console.log('⚠️  Songs routes not available:', err.message);
+}
+
+try {
+  app.use('/api/spotify', require('../routes/spotify'));
+  console.log('✅ Spotify routes loaded');
+} catch (err) {
+  console.log('⚠️  Spotify routes not available:', err.message);
+}
+
+try {
+  app.use('/api/moods', require('../routes/moods'));
+  console.log('✅ Moods routes loaded');
+} catch (err) {
+  console.log('⚠️  Moods routes not available:', err.message);
+}
+
+try {
+  app.use('/api/lastfm', require('../routes/lastfm'));
+  console.log('✅ Last.fm routes loaded');
+} catch (err) {
+  console.log('⚠️  Last.fm routes not available:', err.message);
+}
+
+try {
+  app.use('/api/youtube', require('../routes/youtube'));
+  console.log('✅ YouTube routes loaded');
+} catch (err) {
+  console.log('⚠️  YouTube routes not available:', err.message);
+}
+
 // Basic routes
 app.get('/api/songs', (req, res) => {
   res.json({
