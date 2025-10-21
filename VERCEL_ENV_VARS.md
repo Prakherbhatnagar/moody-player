@@ -16,7 +16,7 @@ IMAGEKIT_URL_ENDPOINT=https://ik.imagekit.io/iw4tuqak2
 SPOTIFY_CLIENT_ID=e66da6e76eed416996d7d4831626a590
 SPOTIFY_CLIENT_SECRET=952b38de891544c9a1a2db489a5e40e0
 SPOTIFY_REDIRECT_URI=https://moody-player-ai.vercel.app/api/spotify/callback
-LASTFM_API_KEY=your_lastfm_api_key
+LASTFM_API_KEY=9e396dcb87a36624dcd727f2a721dd2f
 YOUTUBE_API_KEY=your_youtube_api_key
 ```
 
