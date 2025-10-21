@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moody Player - AI-Powered Music Experience</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+        .status {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .status-item:last-child {
+            border-bottom: none;
+        }
+        .status-label {
+            font-weight: bold;
+            color: #333;
+        }
+        .status-value {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .endpoints {
+            background: #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .endpoint {
+            background: white;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px 0;
+            font-family: monospace;
+            color: #007bff;
+        }
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 Moody Player</h1>
+        <p class="subtitle">AI-Powered Music Experience</p>
+        
+        <div class="status">
+            <h3>System Status</h3>
+            <div class="status-item">
+                <span class="status-label">API Status:</span>
+                <span class="status-value" id="apiStatus">Checking...</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Database:</span>
+                <span class="status-value" id="dbStatus">Checking...</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Environment:</span>
+                <span class="status-value" id="envStatus">Checking...</span>
+            </div>
+        </div>
+
+        <div class="endpoints">
+            <h3>Available Endpoints</h3>
+            <div class="endpoint">GET /api/health</div>
+            <div class="endpoint">GET /api/test</div>
+            <div class="endpoint">GET /api/songs</div>
+            <div class="endpoint">GET /api/moods</div>
+        </div>
+
+        <div>
+            <a href="/api/health" class="btn">Health Check</a>
+            <a href="/api/test" class="btn">Test API</a>
+        </div>
+    </div>
+
+    <script>
+        // Check API status
+        async function checkStatus() {
+            try {
+                const response = await fetch('/api/health');
+                const data = await response.json();
+                
+                document.getElementById('apiStatus').textContent = 'Online';
+                document.getElementById('apiStatus').style.color = '#28a745';
+                document.getElementById('envStatus').textContent = data.environment || 'production';
+                document.getElementById('envStatus').style.color = '#28a745';
+                
+                // Check database status
+                if (data.uptime) {
+                    document.getElementById('dbStatus').textContent = 'Connected';
+                    document.getElementById('dbStatus').style.color = '#28a745';
+                }
+            } catch (error) {
+                document.getElementById('apiStatus').textContent = 'Offline';
+                document.getElementById('apiStatus').style.color = '#dc3545';
+                document.getElementById('dbStatus').textContent = 'Error';
+                document.getElementById('dbStatus').style.color = '#dc3545';
+                document.getElementById('envStatus').textContent = 'Unknown';
+                document.getElementById('envStatus').style.color = '#dc3545';
+            }
+        }
+
+        // Check status on page load
+        checkStatus();
+    </script>
+</body>
+</html>
