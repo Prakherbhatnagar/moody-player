@@ -8,7 +8,7 @@ Here are all the environment variables you need to set up for your Moody Player 
 ```env
 NODE_ENV=production
 PORT=3000
-FRONTEND_URL=https://moody-player-fkwe.vercel.app
+FRONTEND_URL=https://moody-player-ai.vercel.app
 ```
 
 ### 🗄️ **Database Configuration**
@@ -108,8 +108,8 @@ IMAGEKIT_URL_ENDPOINT=https://ik.imagekit.io/your_id
 2. Click "Create App"
 3. App Name: `Moody Player`
 4. App Description: `AI-powered music application with mood detection`
-5. Website: `https://moody-player-fkwe.vercel.app`
-6. Redirect URI: `https://moody-player-fkwe.vercel.app/api/spotify/callback`
+5. Website: `https://moody-player-ai.vercel.app`
+6. Redirect URI: `https://moody-player-ai.vercel.app/api/spotify/callback`
 7. Click "Save"
 
 #### Step 3: Get API Keys
@@ -191,7 +191,7 @@ Copy this template and fill in your actual values:
 # Core Application
 NODE_ENV=production
 PORT=3000
-FRONTEND_URL=https://moody-player-fkwe.vercel.app
+FRONTEND_URL=https://moody-player-ai.vercel.app
 
 # Database
 MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/moody-player

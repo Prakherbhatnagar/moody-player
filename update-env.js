@@ -75,7 +75,7 @@ function generateEnvFile() {
   const envContent = `# 🌐 Core Application Variables
 NODE_ENV=production
 PORT=3000
-FRONTEND_URL=https://moody-player-fkwe.vercel.app
+FRONTEND_URL=https://moody-player-ai.vercel.app
 
 # 🗄️ Database Configuration
 MONGODB_URI=${envVars.MONGODB_URI || 'mongodb+srv://username:password@cluster.mongodb.net/moody-player'}

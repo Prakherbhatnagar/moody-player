@@ -72,7 +72,7 @@ app.get('/', (req, res) => {
     message: 'Moody Player API',
     version: '1.0.0',
     status: 'running',
-    app_url: 'https://moody-player-fkwe.vercel.app',
+    app_url: 'https://moody-player-ai.vercel.app',
     endpoints: [
       '/api/health',
       '/api/test',
