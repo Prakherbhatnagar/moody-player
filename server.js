@@ -36,18 +36,49 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(morgan('combined'));
 
 // MongoDB connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/moody-player', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('✅ MongoDB connected successfully'))
-.catch(err => console.error('❌ MongoDB connection error:', err));
+async function connectDB() {
+  try {
+    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/moody-player';
+    console.log('🔗 Connecting to MongoDB...');
+    await mongoose.connect(mongoURI);
+    console.log('✅ MongoDB connected successfully');
+  } catch (err) {
+    console.error('❌ MongoDB connection error:', err.message);
+    // Don't exit the process, continue without DB
+  }
+}
 
-// Routes
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/songs', require('./routes/songs'));
-app.use('/api/moods', require('./routes/moods'));
-app.use('/api/spotify', require('./routes/spotify'));
+// Connect to database
+connectDB();
+
+// Routes with error handling
+try {
+  app.use('/api/auth', require('./routes/auth'));
+  console.log('✅ Auth routes loaded');
+} catch (err) {
+  console.error('❌ Auth routes error:', err.message);
+}
+
+try {
+  app.use('/api/songs', require('./routes/songs'));
+  console.log('✅ Songs routes loaded');
+} catch (err) {
+  console.error('❌ Songs routes error:', err.message);
+}
+
+try {
+  app.use('/api/moods', require('./routes/moods'));
+  console.log('✅ Moods routes loaded');
+} catch (err) {
+  console.error('❌ Moods routes error:', err.message);
+}
+
+try {
+  app.use('/api/spotify', require('./routes/spotify'));
+  console.log('✅ Spotify routes loaded');
+} catch (err) {
+  console.error('❌ Spotify routes error:', err.message);
+}
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
