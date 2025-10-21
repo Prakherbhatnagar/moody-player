@@ -19,7 +19,7 @@ SPOTIFY_REDIRECT_URI=https://moody-player-ai.vercel.app/api/spotify/callback
 LASTFM_API_KEY=9296f8ba49f1ee44721bc9e7fa89769c
 LASTFM_SECRET=7415c251e056e10cecb6952da134e7f7
 LASTFM_CALLBACK_URL=https://moody-player-ai.vercel.app/api/lastfm/callback
-YOUTUBE_API_KEY=your_youtube_api_key
+YOUTUBE_API_KEY=AIzaSyBXfRLRXQ3mwmMdqywy2XAr9vTgQeZd78A
 ```
 
 ## 🎯 Important Notes:
