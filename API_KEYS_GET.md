@@ -13,13 +13,16 @@
    - **Application name:** `Moody Player`
    - **Application description:** `AI-powered music application`
    - **Application homepage:** `https://moody-player-ai.vercel.app`
-   - **Application callback URL:** `https://moody-player-ai.vercel.app`
+   - **Application callback URL:** `https://moody-player-ai.vercel.app/api/lastfm/callback`
 3. Click **"Create"**
 4. Copy your **API Key** (looks like: `1234567890abcdef1234567890abcdef`)
+5. Copy your **Shared Secret** (looks like: `abcdef1234567890abcdef1234567890`)
 
 ### **Step 3: Add to Vercel**
 ```
 LASTFM_API_KEY=your_actual_api_key_here
+LASTFM_SECRET=your_actual_secret_here
+LASTFM_CALLBACK_URL=https://moody-player-ai.vercel.app/api/lastfm/callback
 ```
 
 ## 🎬 **YOUTUBE API KEY**
@@ -80,12 +83,16 @@ SPOTIFY_CLIENT_ID=e66da6e76eed416996d7d4831626a590
 SPOTIFY_CLIENT_SECRET=952b38de891544c9a1a2db489a5e40e0
 SPOTIFY_REDIRECT_URI=https://moody-player-ai.vercel.app/api/spotify/callback
 LASTFM_API_KEY=your_lastfm_api_key_here
+LASTFM_SECRET=your_lastfm_secret_here
+LASTFM_CALLBACK_URL=https://moody-player-ai.vercel.app/api/lastfm/callback
 YOUTUBE_API_KEY=your_youtube_api_key_here
 ```
 
 ## 🎯 **NEW API ENDPOINTS AVAILABLE**
 
 ### **Last.fm Endpoints:**
+- `GET /api/lastfm/auth` - Get Last.fm authentication URL
+- `GET /api/lastfm/callback` - Handle Last.fm authentication callback
 - `GET /api/lastfm/similar/:mood` - Get similar tracks by mood
 - `GET /api/lastfm/recommendations/:artist` - Get artist recommendations
 - `GET /api/lastfm/toptracks/:tag` - Get top tracks by tag
