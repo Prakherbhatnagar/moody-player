@@ -45,8 +45,8 @@ IMAGEKIT_URL_ENDPOINT=https://ik.imagekit.io/your_id
 3. **Create app**:
    - App Name: `Moody Player`
    - Description: `AI-powered music application`
-   - Website: `https://your-app-name.vercel.app`
-   - Redirect URI: `https://your-app-name.vercel.app/api/spotify/callback`
+   - Website: `https://moody-player-ai.vercel.app`
+   - Redirect URI: `https://moody-player-ai.vercel.app/api/spotify/callback`
 4. **Get credentials**:
    - Go to "Settings"
    - Copy Client ID and Client Secret
@@ -90,7 +90,7 @@ Once you have all the API keys, your `.env` file should look like this:
 # Core Application
 NODE_ENV=production
 PORT=3000
-FRONTEND_URL=https://your-app-name.vercel.app
+FRONTEND_URL=https://moody-player-ai.vercel.app
 
 # Database
 MONGODB_URI=mongodb+srv://moody-player-user:yourpassword@cluster0.xxxxx.mongodb.net/moody-player?retryWrites=true&w=majority

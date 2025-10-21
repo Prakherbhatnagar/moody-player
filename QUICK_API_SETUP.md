@@ -41,7 +41,7 @@ IMAGEKIT_URL_ENDPOINT=https://ik.imagekit.io/your_id
 2. **Log in** with Spotify account
 3. **Create app**:
    - App Name: `Moody Player`
-   - Redirect URI: `https://your-app-name.vercel.app/api/spotify/callback`
+   - Redirect URI: `https://moody-player-ai.vercel.app/api/spotify/callback`
 4. **Get credentials**:
    - Go to Settings
    - Copy Client ID and Client Secret
