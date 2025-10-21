@@ -131,7 +131,7 @@ YOUTUBE_API_KEY=${envVars.YOUTUBE_API_KEY || 'your_youtube_api_key'}
   const envProductionContent = `# 🌐 Core Application Variables
 NODE_ENV=production
 PORT=3000
-FRONTEND_URL=https://your-app-name.vercel.app
+FRONTEND_URL=https://moody-player-fkwe.vercel.app
 
 # 🗄️ Database Configuration
 MONGODB_URI=${envVars.MONGODB_URI || 'mongodb+srv://username:password@cluster.mongodb.net/moody-player'}
